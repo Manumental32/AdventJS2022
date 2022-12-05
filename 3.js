@@ -1,8 +1,8 @@
 function distributeGifts(packOfGifts, reindeers) {
-  const pg = packOfGifts.map(r => r.length )
-  const totalpg = pg.reduce((a, b) => a + b, 0);
-  const fr = reindeers.map(r => r.length*2 )
-  const totalfr = fr.reduce((a, b) => (a + b), 0);
+  let totalpg = 0;
+  packOfGifts.forEach(r => totalpg += r.length)
+  let totalfr = 0;
+  reindeers.forEach(r => totalfr += r.length*2 )
   return Math.trunc(totalfr / totalpg);
 }
 
@@ -10,4 +10,4 @@ function distributeGifts(packOfGifts, reindeers) {
 // los renos pueden llevar (2 * 6) + (2 * 6) = 24
 // por lo tanto, Santa Claus puede entregar 2 cajas de regalos
 
-console.log(distributeGifts()) // 2
+console.log(distributeGifts(["book", "doll", "ball"],["dasher", "dancer"] )) // 2
