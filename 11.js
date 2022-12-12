@@ -10,12 +10,8 @@ function getCompleted(part, total) {
   }
   let parts = part.split(':');
   let totals = total.split(':');
-  // console.log('parts',parts)
-  // console.log('totals',totals)
   let partRed = +parts[0] * 3600 + +parts[1] * 60 + +parts[2];
   let totalRed = +totals[0] * 3600 + +totals[1] * 60 + +totals[2];
-  // console.log('partRed',partRed)
-  // console.log('totalRed',totalRed)
   const MCDof = MCD(partRed,totalRed );
   const partEnd = partRed / MCDof;
   const totalEnd = totalRed / MCDof;
