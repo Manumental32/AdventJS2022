@@ -1,7 +1,6 @@
 function selectSleigh(distance, sleighs) {
   const MAX_P = 20;
-  let r = sleighs.filter((s,i)=> distance * s.consumption <= MAX_P).pop()
-  console.log('r',r)
+  let r = sleighs.filter((s)=> distance * s.consumption <= MAX_P).pop()
   return r ? r.name : null;
 }
 
