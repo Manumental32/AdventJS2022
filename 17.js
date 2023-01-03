@@ -1,19 +1,18 @@
 function carryGifts(gifts, maxWeight) {
-  let r = []
-  let count = 0;
   if (!gifts.every(gift => maxWeight >= gift.length)) {
     return []
   }
-  gifts.map((e)=>{
-    if(r[count] && (r[count] + e).trim().length > maxWeight) {
-      count++;
+  let carry = ['']
+  gifts.forEach(gift => {
+    const previousWeight = carry.at(-1).replace(/ /g, '').length
+    if ((previousWeight + gift.length) <= maxWeight) {
+      carry[carry.length - 1] += ' ' + gift
+      carry[carry.length - 1] = carry[carry.length - 1].trim()
+      return
     }
-    if (e.length <= maxWeight){
-      r[count] = r[count] ? r[count] + ' ' + e : e;
-    }
+    carry.push(gift)
   })
-  console.log(r)
-  return r;
+  return carry
 }
 
 // carryGifts(['game', 'bike', 'book', 'toy'], 3) 
